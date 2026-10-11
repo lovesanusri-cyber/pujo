@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>জয়ানগর পূর্বপাড়া শ্রী শ্রী রক্ষাকালী মন্দির</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- লগইন নির্বাচন স্ক্রিন -->
+    <div id="auth-container">
+        <h1 class="temple-heading">জয়ানগর পূর্বপাড়া শ্রী শ্রী রক্ষাকালী মন্দির</h1>
+        
+        <div class="role-selector">
+            <button id="role-member-btn" class="active" onclick="switchLoginRole('member')">মেম্বার্স লগইন</button>
+            <button id="role-user-btn" onclick="switchLoginRole('user')">ইউজার্স লগইন</button>
+        </div>
+
+        <!-- মেম্বার্স লগইন ফর্ম -->
+        <form id="member-login-form" class="auth-form">
+            <h3>মেম্বার প্রবেশাধিকার</h3>
+            <input type="password" id="member-password" placeholder="মেম্বার পাসওয়ার্ড দিন" required>
+            <button type="submit">লগইন করুন</button>
+        </form>
+
+        <!-- ইউজার্স লগইন / সাইনআপ ফর্ম -->
+        <form id="user-login-form" class="auth-form" style="display: none;">
+            <h3 id="user-form-title">ইউজার লগইন</h3>
+            <input type="email" id="user-email" placeholder="আপনার ইমেইল আইডি" required>
+            <input type="password" id="user-password" placeholder="পাসওয়ার্ড" required>
+            <button type="submit" id="user-submit-btn">লগইন করুন</button>
+            <p class="toggle-text" onclick="toggleUserAuthMode()">নতুন অ্যাকাউন্ট তৈরি করতে চান? সাইনআপ করুন</p>
+        </form>
+    </div>
+
+    <!-- আতশবাজি কন্টেইনার -->
+    <div id="fireworks-container"></div>
+
+    <!-- মূল অ্যাপ্লিকেশন স্ক্রিন -->
+    <div id="main-app" style="display: none;">
+        <header>
+            <h1>জয়ানগর পূর্বপাড়া শ্রী শ্রী রক্ষাকালী মন্দির</h1>
+            <div class="user-info">
+                <span id="logged-role-badge"></span>
+                <button class="logout-btn" onclick="logout()">লগআউট</button>
+            </div>
+        </header>
+
+        <!-- নেভিগেশন ট্যাবস -->
+        <nav class="nav-tabs">
+            <button class="tab-btn active" onclick="showTab('events-tab')">পুজো ইভেন্ট ক্যালেন্ডার</button>
+            <button class="tab-btn" onclick="showTab('expense-tab')">খরচাপাতি বিবরণ</button>
+            <button class="tab-btn member-only" onclick="showTab('register-tab')">চাঁদা এন্ট্রি (Members)</button>
+            <button class="tab-btn member-only" onclick="showTab('status-tab')">পেমেন্ট স্ট্যাটাস (Members)</button>
+        </nav>
+
+        <!-- ট্যাব ১: ইভেন্ট ক্যালেন্ডার -->
+        <section id="events-tab" class="tab-content active">
+            <div class="events-banner">
+                <h2>দুর্গাপূজা সময়সূচী ও ইভেন্ট (১৪৩১ আশ্বিন - ২০২৬)</h2>
+            </div>
+            <div class="event-cards">
+                <div class="card">
+                    <h3>মহা পঞ্চমী</h3>
+                    <p class="date-text">২৭ আশ্বিন / ১৫ অক্টোবর (বৃহস্পতিবার)</p>
+                    <span class="special-note">✨ সন্ধ্যায় প্রতিমা দর্শন ও শুভ সূচনা</span>
+                </div>
+                <div class="card">
+                    <h3>মহা ষষ্ঠী</h3>
+                    <p class="date-text">২৮ আশ্বিন / ১৬ অক্টোবর (শুক্রবার)</p>
+                    <span class="special-note">✨ শ্রী শ্রী দেবী বোধন ও আমন্তন</span>
+                </div>
+                <div class="card">
+                    <h3>মহা সপ্তমী</h3>
+                    <p class="date-text">২৯ ও ৩০ আশ্বিন / ১৭ ও ১৮ অক্টোবর (শনিবার ও রবিবার)</p>
+                    <span class="special-note">✨ নবপত্রিকা প্রবেশ ও মহাসপ্তমী পুজো</span>
+                </div>
+                <div class="card">
+                    <h3>মহা অষ্টমী</h3>
+                    <p class="date-text">১ কার্তিক / ১৯ অক্টোবর (সোমবার)</p>
+                    <span class="special-note">✨ মহাঅষ্টমী পুজো, অঞ্জলি ও সন্ধিপূজা</span>
+                </div>
+                <div class="card">
+                    <h3>মহা নবমী</h3>
+                    <p class="date-text">২ কার্তিক / ২০ অক্টোবর (মঙ্গলবার)</p>
+                    <span class="special-note">✨ মহানবমী হোম, ভোগ ও প্রসাদ বিতরণ</span>
+                </div>
+                <div class="card">
+                    <h3>বিজয়া দশমী</h3>
+                    <p class="date-text">৩ কার্তিক / ২১ অক্টোবর (বুধবার)</p>
+                    <span class="special-note">✨ দর্পণ বিসর্জন, সিঁদুর খেলা ও শুভ বিজয়া</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ট্যাব ২: বাজেট ও খরচাপাতি -->
+        <section id="expense-tab" class="tab-content">
+            <h2>আনুমানিক পুজো খরচ বিবরণ</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>বিবরণ</th>
+                        <th>আনুমানিক খরচ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>প্রতিমা নির্মাণ</td><td>₹৫০,০০০</td></tr>
+                    <tr><td>মন্ডপ ও আলোকসজ্জা</td><td>₹১,২০,০০০</td></tr>
+                    <tr><td>ঢাক ও বাদ্যযন্ত্র</td><td>₹২৫,০০০</td></tr>
+                    <tr><td>পুজোর উপাচার ও ফলমূল</td><td>₹৩৫,০০০</td></tr>
+                    <tr><td>ভোগ ও প্রসাদ বিতরণ</td><td>₹৪০,০০০</td></tr>
+                    <tr><td>ফুল ও মালা সজ্জা</td><td>₹১৫,০০০</td></tr>
+                    <tr class="total-row"><td><strong>মোট আনুমানিক বাজেট</strong></td><td><strong>₹২,৮৫,০০০</strong></td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ট্যাব ৩: চাঁদা এন্ট্রি (Members Only) -->
+        <section id="register-tab" class="tab-content">
+            <h2>নতুন চাঁদা এন্ট্রি করুন</h2>
+            <form id="add-member-form">
+                <input type="text" id="member-name-input" placeholder="সদস্যের নাম" required>
+                <input type="text" id="member-address-input" placeholder="ঠিকানা (পাড়া/বাড়ি নং)" required>
+                <input type="number" id="chanda-amount-input" placeholder="চাঁদার পরিমাণ (₹)" required>
+                <button type="submit">ডাটা যুক্ত করুন</button>
+            </form>
+        </section>
+
+        <!-- ট্যাব ৪: পেমেন্ট স্ট্যাটাস ও সামারি (Members Only) -->
+        <section id="status-tab" class="tab-content">
+            <h2>সদস্যদের চাঁদার হিসাব ও স্ট্যাটাস</h2>
+            
+            <!-- চাঁদা গণনার সামারি বক্স -->
+            <div class="summary-container">
+                <div class="summary-card paid">
+                    <h4>আদায়কৃত চাঁদা</h4>
+                    <p id="total-paid">₹0</p>
+                </div>
+                <div class="summary-card pending">
+                    <h4>বাকি চাঁদা</h4>
+                    <p id="total-pending">₹0</p>
+                </div>
+                <div class="summary-card unpaid-count">
+                    <h4>বাকি সদস্য সংখ্যা</h4>
+                    <p id="unpaid-members-count">0 জন</p>
+                </div>
+            </div>
+
+            <input type="text" id="search-member" placeholder="নাম বা ঠিকানা দিয়ে খুঁজুন..." onkeyup="filterTable()">
+            <table>
+                <thead>
+                    <tr>
+                        <th>নাম</th>
+                        <th>ঠিকানা</th>
+                        <th>পরিমাণ</th>
+                        <th>স্ট্যাটাস</th>
+                        <th>অ্যাকশন</th>
+                    </tr>
+                </thead>
+                <tbody id="member-list-body">
+                    <!-- জাভাস্ক্রিপ্ট দিয়ে লোড হবে -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

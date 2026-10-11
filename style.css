@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('d.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#auth-container {
+    background: rgba(20, 20, 20, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #ff4757;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(255, 71, 87, 0.3);
+}
+
+.temple-heading {
+    font-size: 20px;
+    color: #ff4757;
+    margin-bottom: 20px;
+}
+
+.role-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.role-selector button {
+    flex: 1;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.role-selector button.active {
+    background: #ff4757;
+    font-weight: bold;
+}
+
+.auth-form input, #add-member-form input, #search-member {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #222;
+    color: white;
+}
+
+button {
+    padding: 10px 15px;
+    background: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #ff6b81;
+}
+
+.toggle-text {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #ffa502;
+    cursor: pointer;
+}
+
+/* Main App */
+#main-app {
+    width: 95%;
+    max-width: 950px;
+    padding: 20px;
+    background: rgba(15, 15, 15, 0.92);
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ff4757;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.nav-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: #222;
+}
+
+.tab-btn.active {
+    background: #ff4757;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Events Tab with Durga Background */
+.events-banner {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('durga-bg.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid #ffa502;
+}
+
+.event-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    background: #222;
+    padding: 15px;
+    border-left: 4px solid #ffa502;
+    border-radius: 6px;
+}
+
+.card h3 {
+    color: #ff4757;
+    margin-bottom: 5px;
+}
+
+.date-text {
+    font-size: 13px;
+    color: #ccc;
+    margin-bottom: 8px;
+}
+
+.special-note {
+    font-size: 12px;
+    color: #2ed573;
+    font-weight: bold;
+}
+
+/* Summary Dashboard Box */
+.summary-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.summary-card {
+    flex: 1;
+    min-width: 150px;
+    padding: 15px;
+    background: #222;
+    border-radius: 8px;
+    text-align: center;
+    border-top: 4px solid #fff;
+}
+
+.summary-card.paid { border-color: #2ed573; }
+.summary-card.pending { border-color: #ff3838; }
+.summary-card.unpaid-count { border-color: #ffa502; }
+
+.summary-card h4 {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+
+.summary-card p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Table Style */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #333;
+    text-align: left;
+}
+
+th {
+    background: #222;
+    color: #ff4757;
+}
+
+.btn-delete {
+    background: #ff3838;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.btn-pay {
+    background: #2ed573;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.firework {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+    0% { transform: translate(var(--x), var(--y)) scale(1); opacity: 1; }
+    100% { transform: translate(var(--x), var(--y)) scale(20); opacity: 0; }
+}
